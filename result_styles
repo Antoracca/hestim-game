@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.result-emoji {
+    font-size: 100px;
+    margin-top: 20px;
+}
+
+.result-description {
+    font-size: 20px;
+    margin-top: 20px;
+    color: green;
+}
+
+.result-percentage {
+    font-size: 20px;
+    margin-top: 20px;
+    color: blue;
+}
