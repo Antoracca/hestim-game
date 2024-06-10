@@ -288,6 +288,8 @@ def open_history_share_dialog():
 def show_game_history():
     frame_game.pack_forget()
     frame_profile.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_game_history.pack(pady=90, padx=690, fill="both", expand=True)
 
     for widget in frame_game_history.winfo_children():
@@ -445,6 +447,8 @@ def show_login_form():
     frame_game.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
     frame_login.pack(pady=0, padx=0, fill="both", expand=True)
@@ -459,6 +463,8 @@ def show_signup_form():
     frame_profile.pack_forget()
     frame_otp.pack_forget()
     frame_reset_password.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_reset_success.pack_forget()
     frame_signup.pack(pady=0, padx=0, fill="both", expand=True)
 
@@ -471,6 +477,9 @@ def show_welcome_frame():
     frame_game.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
+
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
     frame_welcome.pack(pady=0, padx=0, fill="both", expand=True)
@@ -505,6 +514,8 @@ def show_signup_success_frame():
     frame_game.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
     frame_signup_success.pack(pady=0, padx=0, fill="both", expand=True)
@@ -527,6 +538,8 @@ def show_game_frame():
     frame_game_history.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
     frame_game.pack(pady=0, padx=0, fill="both", expand=True)
@@ -540,6 +553,8 @@ def show_profile_frame():
     frame_signup_success.pack_forget()
     frame_game.pack_forget()
     frame_otp.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_game_history.pack_forget()
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
@@ -555,6 +570,8 @@ def show_otp_frame():
     frame_signup_success.pack_forget()
     frame_game.pack_forget()
     frame_profile.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_reset_password.pack_forget()
     frame_reset_success.pack_forget()
     frame_otp.pack(pady=0, padx=0, fill="both", expand=True)
@@ -566,6 +583,8 @@ def show_reset_password_frame():
     frame_welcome.pack_forget()
     frame_signup_success.pack_forget()
     frame_game.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
     frame_reset_success.pack_forget()
@@ -578,6 +597,8 @@ def show_reset_success_frame():
     frame_welcome.pack_forget()
     frame_signup_success.pack_forget()
     frame_game.pack_forget()
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
     frame_profile.pack_forget()
     frame_otp.pack_forget()
     frame_reset_password.pack_forget()
@@ -1537,7 +1558,7 @@ button_back_to_login = customtkinter.CTkButton(master=frame_details, text="Sign 
 button_back_to_login.pack(pady=8,padx=12)
 
 social_frame = customtkinter.CTkFrame(master=frame_signup,width=600,height=900, bg_color="black" , fg_color="black")
-social_frame.place(x=600, y=830)
+social_frame.place(x=600, y=800)
 
 google_icon_path = "C:/Users/admin/Downloads/google.png"
 google_image = Image.open(google_icon_path)
@@ -1831,7 +1852,8 @@ def finish_calculation():
         relation_descriptions = [
             ('La relation est amicale', "😊"),
             ('La relation est mentorale', "👨‍🏫"),
-            ('La relation est magnifique', "🌼")
+            ('La relation est magnifique', "🌼"
+             'La relation est amoureuse '"❤️")
         ]
 
     relation_description, emoji = random.choice(relation_descriptions)
@@ -1908,6 +1930,101 @@ button_user_icon = customtkinter.CTkButton(master=frame_game, image=image_photo_
                                            fg_color="#483D8B",bg_color="#483D8B", hover_color="#00BFFF", command=show_profile_frame)
 button_user_icon.place(x=10, y=10)
 
+
+# Charger l'icône d'aide
+help_icon_path = "C:/Users/admin/Downloads/help-outline_117631.png"
+help_icon = Image.open(help_icon_path)
+help_icon = help_icon.resize((30, 30), Image.Resampling.LANCZOS)
+help_photo = ImageTk.PhotoImage(help_icon)
+
+
+def show_help_menu_frame():
+    frame_game.pack_forget()
+    frame_help_menu.pack(pady=80, padx=100, fill="both", expand=True)
+    frame_help_content.pack_forget()
+    frame_about_content.pack_forget()
+
+# Bouton d'aide dans la frame de jeu
+button_help = customtkinter.CTkButton(master=frame_game, image=help_photo, text="", width=65, height=60, fg_color="#87CEEB", bg_color="#87CEEB", hover_color="#00BFFF", command=show_help_menu_frame)
+button_help.place(x=10, y=70)  # Positionner sous le bouton user_icon
+frame_help_menu = customtkinter.CTkFrame(master=root, fg_color="#87CEEB")
+
+
+frame_help_content = customtkinter.CTkFrame(master=root, fg_color="#87CEEB")
+frame_about_content = customtkinter.CTkFrame(master=root, fg_color="#87CEEB")
+
+
+def show_help_content():
+    frame_help_menu.pack_forget()
+    frame_help_content.pack(pady=80, padx=100, fill="both", expand=True)
+    for widget in frame_help_content.winfo_children():
+        widget.destroy()
+    label_help = customtkinter.CTkLabel(master=frame_help_content, text="Guide pour le jeu", font=("Roboto", 20))
+    label_help.pack(pady=20)
+    help_content = """\
+    Instructions du jeu :
+    1. Utilisez les flèches du clavier pour déplacer les personnages.
+    2. Appuyez sur la barre d'espace pour sélectionner un personnage.
+    3. Appuyez sur 'P' pour mettre en pause le jeu.
+    4. Utilisez la touche 'S' pour sauvegarder la progression.
+    5. Appuyez sur 'L' pour charger une sauvegarde.
+    """
+    help_label = customtkinter.CTkLabel(master=frame_help_content, text=help_content, font=("Roboto", 16))
+    help_label.pack(pady=10)
+
+    # Bouton Retour en haut à droite
+    button_back_to_help_menu = customtkinter.CTkButton(master=frame_help_content, text="Retour", font=("Cambria", 16),
+                                                       corner_radius=16, fg_color="black", hover_color="#42A5F5",
+                                                       command=show_help_menu_frame)
+    button_back_to_help_menu.place(relx=0.95, rely=0.05, anchor="ne")
+
+
+def show_about_content():
+    frame_help_menu.pack_forget()
+    frame_about_content.pack(pady=80, padx=100, fill="both", expand=True)
+    for widget in frame_about_content.winfo_children():
+        widget.destroy()
+    label_about = customtkinter.CTkLabel(master=frame_about_content, text="À propos du jeu", font=("Roboto", 20))
+    label_about.pack(pady=20)
+    about_content = """\
+    Hestim Game :
+    Ce jeu a été développé par [Votre Nom] dans le cadre d'un projet à Hestim.
+    L'objectif du jeu est de calculer la relation entre les noms des amis et de fournir un résultat amusant.
+    Profitez du jeu et partagez vos résultats avec vos amis !
+    """
+    about_label = customtkinter.CTkLabel(master=frame_about_content, text=about_content, font=("Roboto", 16))
+    about_label.pack(pady=10)
+
+    # Bouton Retour en haut à droite
+    button_back_to_help_menu = customtkinter.CTkButton(master=frame_about_content, text="Retour", font=("Cambria", 16),
+                                                       corner_radius=16, fg_color="black", hover_color="#42A5F5",
+                                                       command=show_help_menu_frame)
+    button_back_to_help_menu.place(relx=0.95, rely=0.05, anchor="ne")
+
+
+def show_help_menu_content():
+    for widget in frame_help_menu.winfo_children():
+        widget.destroy()
+    button_help_content = customtkinter.CTkButton(master=frame_help_menu, text="Aide", font=("Cambria", 20),
+                                                  corner_radius=16, fg_color="blue", command=show_help_content)
+    button_help_content.pack(pady=20)
+
+    button_about_content = customtkinter.CTkButton(master=frame_help_menu, text="À propos", font=("Cambria", 20),
+                                                   corner_radius=16, fg_color="red", command=show_about_content)
+    button_about_content.pack(pady=20)
+
+    button_back_to_game_from_help_menu = customtkinter.CTkButton(master=frame_help_menu, text="Retour au jeu",
+                                                                 font=("Cambria", 20), corner_radius=16,
+                                                                 fg_color="black", hover_color="#42A5F5",
+                                                                 command=show_game_frame)
+    button_back_to_game_from_help_menu.pack(pady=0,padx=0, anchor="ne")
+    frame_help_menu.pack_forget()
+    frame_help_content.pack_forget()
+
+
+# Assurez-vous d'afficher le contenu du menu d'aide par défaut
+show_help_menu_content()
+
 # Widgets pour la frame de profil
 profile_info_frame = customtkinter.CTkFrame(master=frame_profile)
 profile_info_frame.pack(pady=20, padx=20, fill="both", expand=True)
@@ -1924,6 +2041,9 @@ image_photo_info = ImageTk.PhotoImage(image_pil_info)
 info_icon_label = customtkinter.CTkLabel(master=profile_info_frame, image=image_photo_info, text="")
 info_icon_label.image = image_photo_info
 info_icon_label.pack(pady=30)
+
+
+
 
 # Informations du profil
 label_profile_username = customtkinter.CTkLabel(master=profile_info_frame, text="", font=("Roboto Medium", 20))
